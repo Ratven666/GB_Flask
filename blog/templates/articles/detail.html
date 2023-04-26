@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Articles {{ articles[article_id] }}
+{% endblock %}
+
+{% block body %}
+<h1> {{ articles[article_id]["title"] }} </h1>
+
+<p>
+    {%  for user_id in articles[article_id]["authors"] %}
+    <a href="{{ url_for("user.get_user", pk=user_id) }}"> {{ users[user_id] }}</a>
+    {% endfor %}
+</p>
+
+
+<p></p>
+<p> {{ articles[article_id]["abstract"] }}</p>
+<p></p>
+<p> {{ articles[article_id]["text"] }}</p>
+
+<button type="button" class="btn btn-secondary btn-lg">
+    <a href="javascript:history.back()"> Назад </a>
+</button>
+
+{% endblock %}
