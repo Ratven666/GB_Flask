@@ -1,20 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-Articles
+    Users list
 {% endblock %}
-
 {% block body %}
-<h1> Articles list </h1>
-
-{%  for article_id in articles %}
-<uL>
-    <li>
-        {% for user_id in articles[article_id]["authors"] %}
-        <a href="{{ url_for("user.get_user", pk=user_id) }}" class="fw-bold"> {{ users[user_id] }}</a>
-        {% endfor %}
-        <a href="{{ url_for("article.get_article", pk=article_id) }}" class="fst-italic"> {{ articles[article_id]["title"] }}</a>
-    </li>
-</uL>
-{% endfor %}
+    {% for article_id in articles %}
+        <ul>
+            <a href="{{ url_for('article.get_article', pk=article_id) }}">{{ articles[article_id]["title"] }}</a>
+        </ul>
+    {% endfor %}
 {% endblock %}
