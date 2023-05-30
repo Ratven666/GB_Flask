@@ -1,5 +1,2 @@
-from blog.models.user import User
-
-__all__ = [
-    "User",
-]
+from .author import Author
+from .user import User
